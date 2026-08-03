@@ -1,6 +1,5 @@
 # Ida Helia Photography Website
 
-![Demo Screenshot](https://raw.githubusercontent.com/STGjuji/idaheliahjemmeside/main/screenshot.png)
 
 A modern, responsive photography portfolio and booking site built with **React**, **Vite**, and **Tailwind CSS**. It showcases Ida Helia's work, offers a pricing calculator, and lets clients submit booking requests directly.
 
