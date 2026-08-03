@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, CheckCircle2, Globe, Sparkles, ExternalLink } from 'lucide-react';
+import { Award, CheckCircle2, Globe, Sparkles } from 'lucide-react';
 import { topPhotographersInspiration } from '../data/initialData';
 
 export default function Top3Inspiration() {
@@ -11,13 +11,13 @@ export default function Top3Inspiration() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-gold/10 text-brand-gold text-xs tracking-widest uppercase font-semibold mb-4">
             <Award className="w-3.5 h-3.5" />
-            Curated Industry Benchmarks
+            Udvalgte Branchedesign-Benchmarks
           </div>
           <h2 className="font-serif text-3xl md:text-5xl text-brand-charcoal font-normal tracking-tight mb-4">
-            Inspired by World-Class Photography Platforms
+            Inspireret af Fotograf-Hjemmesider i Verdensklasse
           </h2>
           <p className="text-stone-600 text-sm md:text-base font-light leading-relaxed">
-            To ensure <span className="font-medium text-brand-charcoal">www.idahelia.dk</span> stands out at the pinnacle of luxury photography, we researched the top 3 award-winning photographer website design standards globally.
+            For at sikre at <span className="font-medium text-brand-charcoal">www.idahelia.dk</span> fremstår i absolut topklasse inden for eksklusiv fotografering, har vi analyseret de 3 mest anerkendte internationale fotograf-hjemmesider.
           </p>
         </div>
 
@@ -51,7 +51,7 @@ export default function Top3Inspiration() {
 
                 {/* Key Strengths */}
                 <div className="space-y-3 mb-8">
-                  <h4 className="text-xs font-semibold uppercase tracking-wider text-brand-stone">Key Website Strengths</h4>
+                  <h4 className="text-xs font-semibold uppercase tracking-wider text-brand-stone">Prikvurdere Designstyrker</h4>
                   {item.keyStrengths.map((strength, idx) => (
                     <div key={idx} className="flex items-start gap-2.5 text-xs text-stone-600 leading-normal">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
@@ -65,7 +65,7 @@ export default function Top3Inspiration() {
               <div className="pt-6 border-t border-stone-100 bg-brand-paper/50 -mx-8 -mb-8 p-6 rounded-b-2xl">
                 <div className="flex items-center gap-2 text-xs font-bold text-brand-charcoal uppercase tracking-wider mb-2">
                   <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
-                  <span>Implemented for Ida Helia</span>
+                  <span>Implementeret for Ida Helia</span>
                 </div>
                 <p className="text-xs text-stone-600 font-light italic leading-relaxed">
                   "{item.howIdaAppliesThis}"
@@ -79,17 +79,17 @@ export default function Top3Inspiration() {
         <div className="mt-16 bg-brand-charcoal text-white rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="space-y-2 text-center md:text-left">
             <h4 className="font-serif text-2xl text-brand-goldLight font-normal">
-              Ready for Domain Launch: www.idahelia.dk
+              Klar til Domænelancering: www.idahelia.dk
             </h4>
             <p className="text-xs md:text-sm text-stone-300 max-w-2xl font-light">
-              Combining Levon Biss' editorial photography clarity, Sander Vill's Scandinavian emotional warmth, and The Wed's frictionless booking management.
+              Kombinerer Levon Biss' redaktionelle præcision, Sander Vills skandinaviske stemningsvarme og The Weds ubesværede bookingstyring.
             </p>
           </div>
           <a
             href="#booking"
             className="px-6 py-3 bg-brand-gold hover:bg-[#b59871] text-white text-xs font-medium uppercase tracking-widest rounded-full transition-all shrink-0"
           >
-            Explore Client Booking Workflow
+            Se Klient-Bookingforløb
           </a>
         </div>
 

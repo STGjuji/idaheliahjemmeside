@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Camera, MapPin, Maximize2, X, Info, Sparkles } from 'lucide-react';
 
 export default function Gallery({ items }) {
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState('Alle');
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const categories = ['All', 'Weddings', 'Editorial', 'Portraits', 'Commercial'];
+  const categories = ['Alle', 'Bryllupper', 'Moderedaktion', 'Portrætter', 'Erhverv'];
 
-  const filteredItems = selectedCategory === 'All'
+  const filteredItems = selectedCategory === 'Alle'
     ? items
     : items.filter(item => item.category === selectedCategory);
 
@@ -19,10 +19,10 @@ export default function Gallery({ items }) {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
             <span className="text-xs tracking-[0.25em] uppercase text-brand-gold font-semibold mb-2 block">
-              Curated Body of Work
+              Kurateret Portefølje
             </span>
             <h2 className="font-serif text-3xl md:text-5xl text-brand-charcoal font-normal tracking-tight">
-              Selected Collections
+              Udvalgte Billedsamlinger
             </h2>
           </div>
 
@@ -107,7 +107,7 @@ export default function Gallery({ items }) {
               <button
                 onClick={() => setSelectedImage(null)}
                 className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-white/20 transition-colors"
-                aria-label="Close Preview"
+                aria-label="Luk visning"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -125,7 +125,7 @@ export default function Gallery({ items }) {
               <div className="w-full lg:w-1/3 p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-stone-800 bg-brand-darkSlate">
                 <div>
                   <span className="text-xs tracking-widest text-brand-gold uppercase font-semibold block mb-2">
-                    {selectedImage.category} Collection
+                    {selectedImage.category} Samling
                   </span>
                   <h3 className="font-serif text-3xl font-normal mb-4 text-white">
                     {selectedImage.title}
@@ -133,7 +133,7 @@ export default function Gallery({ items }) {
 
                   <div className="space-y-4 text-xs text-stone-300 font-light border-y border-stone-800 py-6 my-6">
                     <div className="flex items-center justify-between">
-                      <span className="text-stone-400">Location:</span>
+                      <span className="text-stone-400">Lokation:</span>
                       <span className="font-medium text-white flex items-center gap-1">
                         <MapPin className="w-3.5 h-3.5 text-brand-gold" />
                         {selectedImage.location}
@@ -141,7 +141,7 @@ export default function Gallery({ items }) {
                     </div>
 
                     <div className="flex items-center justify-between">
-                      <span className="text-stone-400">Camera Body:</span>
+                      <span className="text-stone-400">Kamerahus:</span>
                       <span className="font-medium text-white flex items-center gap-1">
                         <Camera className="w-3.5 h-3.5 text-brand-gold" />
                         {selectedImage.camera}
@@ -149,12 +149,12 @@ export default function Gallery({ items }) {
                     </div>
 
                     <div className="flex items-center justify-between">
-                      <span className="text-stone-400">Lens Optics:</span>
+                      <span className="text-stone-400">Objektiv:</span>
                       <span className="font-medium text-white">{selectedImage.lens}</span>
                     </div>
 
                     <div className="flex items-center justify-between">
-                      <span className="text-stone-400">Rights & Domain:</span>
+                      <span className="text-stone-400">Rettigheder & Domæne:</span>
                       <span className="font-medium text-brand-gold">www.idahelia.dk</span>
                     </div>
                   </div>
@@ -165,7 +165,7 @@ export default function Gallery({ items }) {
                   onClick={() => setSelectedImage(null)}
                   className="w-full py-3 bg-brand-gold hover:bg-[#b59871] text-white text-xs uppercase tracking-widest rounded-full text-center font-medium transition-colors"
                 >
-                  Book Similar Shoot
+                  Book Lignende Optagelse
                 </a>
               </div>
             </div>

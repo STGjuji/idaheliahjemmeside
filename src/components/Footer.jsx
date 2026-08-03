@@ -24,11 +24,11 @@ export default function Footer({ onOpenAdmin }) {
               </span>
             </div>
             <p className="text-xs text-stone-400 font-light max-w-md leading-relaxed">
-              Editorial, commercial, and high-end wedding photography in Copenhagen, Denmark and destinations worldwide. Designed with quiet Scandinavian luxury and intentional light.
+              Redaktionel, kommerciel og eksklusiv bryllupsfotografering i København, Danmark og i hele verden. Designet med afdæmpet skandinavisk luksus og nærvær.
             </p>
             <div className="text-xs text-brand-gold font-medium flex items-center gap-2">
               <Globe className="w-4 h-4" />
-              <span>Official Domain: www.idahelia.dk</span>
+              <span>Officielt Domæne: www.idahelia.dk</span>
             </div>
           </div>
 
@@ -36,26 +36,26 @@ export default function Footer({ onOpenAdmin }) {
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-brand-gold">Navigation</h4>
             <ul className="space-y-2 text-xs text-stone-300 font-light">
-              <li><a href="#gallery" className="hover:text-brand-gold transition-colors">Portfolio Collections</a></li>
-              <li><a href="#inspiration" className="hover:text-brand-gold transition-colors">Design & Style Analysis</a></li>
-              <li><a href="#pricing" className="hover:text-brand-gold transition-colors">Packages & DKK Estimator</a></li>
-              <li><a href="#booking" className="hover:text-brand-gold transition-colors">Book Date Inquiry</a></li>
-              <li><a href="#about" className="hover:text-brand-gold transition-colors">About Ida Helia</a></li>
+              <li><a href="#gallery" className="hover:text-brand-gold transition-colors">Portefølje</a></li>
+              <li><a href="#inspiration" className="hover:text-brand-gold transition-colors">Design & Stil-analyse</a></li>
+              <li><a href="#pricing" className="hover:text-brand-gold transition-colors">Pakker & Priser</a></li>
+              <li><a href="#booking" className="hover:text-brand-gold transition-colors">Book Session</a></li>
+              <li><a href="#about" className="hover:text-brand-gold transition-colors">Om Ida Helia</a></li>
             </ul>
           </div>
 
           {/* Admin & Rights */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-brand-gold">Studio Management</h4>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-brand-gold">Studieadministrationsportal</h4>
             <p className="text-xs text-stone-400 font-light">
-              Calendar management, billable shoot logging, client invoice summaries, and site deployment.
+              Kalenderstyring, time- og faktureregistrering samt domæneopsætning.
             </p>
             <button
               onClick={onOpenAdmin}
               className="px-4 py-2.5 rounded-full bg-brand-darkSlate hover:bg-stone-800 border border-stone-700 text-white text-xs font-medium uppercase tracking-wider flex items-center gap-2 transition-colors"
             >
               <Lock className="w-3.5 h-3.5 text-brand-gold" />
-              <span>Ida's Admin Studio</span>
+              <span>Idas Admin Studie</span>
             </button>
           </div>
 
@@ -64,14 +64,14 @@ export default function Footer({ onOpenAdmin }) {
         {/* Bottom Rights Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500 font-light">
           <div>
-            © {new Date().getFullYear()} Ida Helia Photography (www.idahelia.dk). All rights reserved. CVR: DK39182490.
+            © {new Date().getFullYear()} Ida Helia Fotografi (www.idahelia.dk). Alle rettigheder forbeholdes. CVR: DK39182490.
           </div>
 
           <button
             onClick={scrollToTop}
             className="flex items-center gap-2 text-stone-400 hover:text-white transition-colors"
           >
-            <span>Back to top</span>
+            <span>Til toppen</span>
             <ArrowUp className="w-3.5 h-3.5" />
           </button>
         </div>

@@ -4,21 +4,21 @@ import { ArrowDown, Calendar, Camera, Sparkles } from 'lucide-react';
 const heroSlides = [
   {
     image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85",
-    subtitle: "WEDDING & EDITORIAL PHOTOGRAPHY",
-    title: "Timeless Light & Quiet Scandinavian Elegance",
-    location: "Copenhagen & Worldwide Destination"
+    subtitle: "BRYLLUPS- OG EDITORIAL FOTOGRAFERING",
+    title: "Tidsløst Lys & Afdæmpet Skandinavisk Elegance",
+    location: "Danmark & Bryllupper i Hele Verden"
   },
   {
     image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=2000&q=85",
-    subtitle: "VOGUE & FASHION CAMPAIGNS",
-    title: "High Artistry Rendered in Raw Light",
-    location: "Studio & Location Projects"
+    subtitle: "VOGUE & FASHION KAMPAGNER",
+    title: "Rå Elegance & Høj Kunstnerisk Æstetik",
+    location: "Studie & Lokationsprojekter"
   },
   {
     image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2000&q=85",
-    subtitle: "PORTRAITURE & ARCHITECTURE",
-    title: "Capturing Authentic Connection & Form",
-    location: "Scandinavia • Europe"
+    subtitle: "PORTRÆTTER & ARKITEKTUR",
+    title: "Autentisk Nærvær, Karakter & Form",
+    location: "Skandinavien • Europa"
   }
 ];
 
@@ -57,7 +57,7 @@ export default function Hero({ onBookClick, onPortfolioClick }) {
       {/* Domain Badge */}
       <div className="absolute top-28 left-6 md:left-12 z-10 glass-panel border border-white/20 text-brand-charcoal text-[11px] font-medium tracking-[0.2em] uppercase px-3.5 py-1.5 rounded-full flex items-center gap-2">
         <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-        Official Site • www.idahelia.dk
+        Officiel Hjemmeside • www.idahelia.dk
       </div>
 
       {/* Main Content Overlay */}
@@ -71,7 +71,7 @@ export default function Hero({ onBookClick, onPortfolioClick }) {
         </h1>
 
         <p className="text-sm md:text-base text-stone-300 font-light tracking-wide mb-10 max-w-2xl">
-          Based in Copenhagen. Crafting emotive, high-end visual stories for luxury weddings, fashion editorial, and architectural portraiture.
+          Skaber stemningsfulde, eksklusive visuelle fortællinger for luksusbryllupper, moderedaktioner og arkitektoniske portrætter.
         </p>
 
         {/* CTA Buttons */}
@@ -81,7 +81,7 @@ export default function Hero({ onBookClick, onPortfolioClick }) {
             className="w-full sm:w-auto px-8 py-4 rounded-full bg-brand-gold text-white font-medium text-xs tracking-[0.2em] uppercase hover:bg-[#b59871] transition-all transform hover:-translate-y-0.5 shadow-lg flex items-center justify-center gap-2"
           >
             <Calendar className="w-4 h-4" />
-            <span>Reserve 2026 / 2027 Date</span>
+            <span>Reserver Dato For 2026 / 2027</span>
           </button>
           
           <button
@@ -89,7 +89,7 @@ export default function Hero({ onBookClick, onPortfolioClick }) {
             className="w-full sm:w-auto px-8 py-4 rounded-full border border-white/40 text-white font-medium text-xs tracking-[0.2em] uppercase hover:bg-white/10 transition-all flex items-center justify-center gap-2"
           >
             <Camera className="w-4 h-4 text-brand-goldLight" />
-            <span>Explore Portfolio</span>
+            <span>Udforsk Portefølje</span>
           </button>
         </div>
       </div>
@@ -109,7 +109,7 @@ export default function Hero({ onBookClick, onPortfolioClick }) {
               className={`h-1.5 rounded-full transition-all duration-500 ${
                 i === currentSlide ? 'w-8 bg-brand-gold' : 'w-2 bg-white/40'
               }`}
-              aria-label={`Go to slide ${i + 1}`}
+              aria-label={`Gå til dias ${i + 1}`}
             />
           ))}
         </div>
@@ -119,7 +119,7 @@ export default function Hero({ onBookClick, onPortfolioClick }) {
           href="#gallery"
           className="text-white/70 hover:text-white flex items-center gap-2 text-xs tracking-widest uppercase transition-colors hidden sm:flex"
         >
-          <span>Scroll</span>
+          <span>Rul ned</span>
           <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
         </a>
       </div>

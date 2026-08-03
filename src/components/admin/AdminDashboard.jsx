@@ -15,7 +15,7 @@ export default function AdminDashboard({
   onCloseAdmin
 }) {
   const [passcode, setPasscode] = useState('');
-  const [isAuthenticated, setIsAuthenticated] = useState(true); // Default true for instant preview, passcode 1234
+  const [isAuthenticated, setIsAuthenticated] = useState(true); // Standard sand for hurtig forhåndsvisning
   const [adminTab, setAdminTab] = useState('calendar'); // 'calendar', 'hours', 'gallery', 'domain'
 
   const handleLogin = (e) => {
@@ -23,19 +23,19 @@ export default function AdminDashboard({
     if (passcode === '1234' || passcode === 'ida2026') {
       setIsAuthenticated(true);
     } else {
-      alert('Incorrect passcode. Try default passcode: 1234');
+      alert('Forkert adgangskode. Prøv standard adgangskode: 1234');
     }
   };
 
-  // Compute Metrics
+  // Beregn nøgletal
   const totalEarningsDKK = hoursLog
     .filter(item => item.billable)
     .reduce((sum, item) => sum + (item.hours * item.ratePerHourDKK), 0);
 
   const totalHoursLogged = hoursLog.reduce((sum, item) => sum + item.hours, 0);
 
-  const pendingInquiriesCount = bookings.filter(b => b.status === 'Pending Inquiry').length;
-  const confirmedBookingsCount = bookings.filter(b => b.status === 'Confirmed').length;
+  const pendingInquiriesCount = bookings.filter(b => b.status === 'Afventer Forespørgsel').length;
+  const confirmedBookingsCount = bookings.filter(b => b.status === 'Bekræftet').length;
 
   if (!isAuthenticated) {
     return (
@@ -45,20 +45,20 @@ export default function AdminDashboard({
             <Lock className="w-7 h-7" />
           </div>
           <div>
-            <h2 className="font-serif text-3xl font-normal text-white">Ida's Admin Studio</h2>
+            <h2 className="font-serif text-3xl font-normal text-white">Idas Admin Studie</h2>
             <p className="text-xs text-stone-400 font-light mt-1">
-              Private portal for www.idahelia.dk
+              Privat studieportal for www.idahelia.dk
             </p>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-4 text-left">
             <div>
               <label className="text-xs font-semibold uppercase tracking-wider text-stone-300 mb-2 block">
-                Enter Passcode
+                Indtast Adgangskode
               </label>
               <input
                 type="password"
-                placeholder="Default Passcode: 1234"
+                placeholder="Standard adgangskode: 1234"
                 value={passcode}
                 onChange={(e) => setPasscode(e.target.value)}
                 className="w-full px-4 py-3 rounded-xl bg-black/40 border border-stone-700 text-white text-xs focus:outline-none focus:border-brand-gold transition-all"
@@ -68,7 +68,7 @@ export default function AdminDashboard({
               type="submit"
               className="w-full py-3.5 bg-brand-gold hover:bg-[#b59871] text-white text-xs font-medium uppercase tracking-widest rounded-full transition-all"
             >
-              Unlock Management Studio
+              Lås op for Admin Studie
             </button>
           </form>
 
@@ -77,7 +77,7 @@ export default function AdminDashboard({
               onClick={() => setIsAuthenticated(true)}
               className="text-xs text-stone-400 hover:text-brand-gold underline font-light"
             >
-              Quick One-Click Demo Access
+              Hurtig Et-klik Demo-adgang
             </button>
           </div>
         </div>
@@ -97,13 +97,13 @@ export default function AdminDashboard({
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="font-serif text-2xl md:text-3xl font-normal text-white">Ida Helia Admin Workspace</h1>
+                <h1 className="font-serif text-2xl md:text-3xl font-normal text-white">Ida Helia Admin Studie</h1>
                 <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] uppercase tracking-wider font-semibold border border-emerald-500/30">
-                  Live Sync
+                  Live Synkroniseret
                 </span>
               </div>
               <p className="text-xs text-stone-400 font-light mt-0.5">
-                Managing calendar, billable shoot hours, and domain readiness for <span className="text-brand-gold font-medium">www.idahelia.dk</span>
+                Styrer kalender, fakturerbare skudtimer og domæneklarhed for <span className="text-brand-gold font-medium">www.idahelia.dk</span>
               </p>
             </div>
           </div>
@@ -114,7 +114,7 @@ export default function AdminDashboard({
               className="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs tracking-wider uppercase font-medium transition-colors flex items-center gap-2"
             >
               <LogOut className="w-4 h-4 text-stone-400" />
-              <span>Back to Client Website</span>
+              <span>Tilbage til Klientvisning</span>
             </button>
           </div>
         </div>
@@ -125,21 +125,21 @@ export default function AdminDashboard({
           {/* Card 1: Total Hours Logged */}
           <div className="bg-brand-darkSlate p-6 rounded-2xl border border-stone-800 shadow-sm space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-xs text-stone-400 font-medium uppercase tracking-wider">Logged Hours</span>
+              <span className="text-xs text-stone-400 font-medium uppercase tracking-wider">Registrerede Timer</span>
               <div className="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center">
                 <Clock className="w-4 h-4" />
               </div>
             </div>
             <div className="font-serif text-3xl font-normal text-white">
-              {totalHoursLogged.toFixed(1)} <span className="text-sm font-sans text-stone-400">hrs</span>
+              {totalHoursLogged.toFixed(1)} <span className="text-sm font-sans text-stone-400">timer</span>
             </div>
-            <p className="text-[11px] text-stone-400 font-light">Shoot & retouching time logged</p>
+            <p className="text-[11px] text-stone-400 font-light">Skud- og redigeringstid i alt</p>
           </div>
 
           {/* Card 2: Total Billable Earnings */}
           <div className="bg-brand-darkSlate p-6 rounded-2xl border border-stone-800 shadow-sm space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-xs text-stone-400 font-medium uppercase tracking-wider">Logged Billable Sum</span>
+              <span className="text-xs text-stone-400 font-medium uppercase tracking-wider">Fakturerbar Omsætning</span>
               <div className="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
                 <DollarSign className="w-4 h-4" />
               </div>
@@ -147,35 +147,35 @@ export default function AdminDashboard({
             <div className="font-serif text-3xl font-normal text-emerald-400">
               {totalEarningsDKK.toLocaleString('da-DK')} <span className="text-sm font-sans text-stone-400">DKK</span>
             </div>
-            <p className="text-[11px] text-stone-400 font-light">Based on hourly rates logged</p>
+            <p className="text-[11px] text-stone-400 font-light">Baseret på registrerede hourly rates</p>
           </div>
 
           {/* Card 3: Confirmed Bookings */}
           <div className="bg-brand-darkSlate p-6 rounded-2xl border border-stone-800 shadow-sm space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-xs text-stone-400 font-medium uppercase tracking-wider">Confirmed Shoots</span>
+              <span className="text-xs text-stone-400 font-medium uppercase tracking-wider">Bekræftede Optagelser</span>
               <div className="w-8 h-8 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center">
                 <Calendar className="w-4 h-4" />
               </div>
             </div>
             <div className="font-serif text-3xl font-normal text-white">
-              {confirmedBookingsCount} <span className="text-sm font-sans text-stone-400">Sessions</span>
+              {confirmedBookingsCount} <span className="text-sm font-sans text-stone-400">Aftaler</span>
             </div>
-            <p className="text-[11px] text-stone-400 font-light">On active calendar schedule</p>
+            <p className="text-[11px] text-stone-400 font-light">Aktivt i kalenderen</p>
           </div>
 
           {/* Card 4: Pending Inquiries */}
           <div className="bg-brand-darkSlate p-6 rounded-2xl border border-stone-800 shadow-sm space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-xs text-stone-400 font-medium uppercase tracking-wider">Pending Inquiries</span>
+              <span className="text-xs text-stone-400 font-medium uppercase tracking-wider">Afventende Forespørgsler</span>
               <div className="w-8 h-8 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center">
                 <AlertCircle className="w-4 h-4" />
               </div>
             </div>
             <div className="font-serif text-3xl font-normal text-purple-300">
-              {pendingInquiriesCount} <span className="text-sm font-sans text-stone-400">Requests</span>
+              {pendingInquiriesCount} <span className="text-sm font-sans text-stone-400">Forespørgsler</span>
             </div>
-            <p className="text-[11px] text-stone-400 font-light">Submitted via www.idahelia.dk</p>
+            <p className="text-[11px] text-stone-400 font-light">Sendt via www.idahelia.dk</p>
           </div>
 
         </div>
@@ -191,7 +191,7 @@ export default function AdminDashboard({
             }`}
           >
             <Calendar className="w-4 h-4" />
-            <span>Calendar & Bookings ({bookings.length})</span>
+            <span>Kalender & Bookinger ({bookings.length})</span>
           </button>
 
           <button
@@ -203,7 +203,7 @@ export default function AdminDashboard({
             }`}
           >
             <Clock className="w-4 h-4" />
-            <span>Hours & Time Tracker ({hoursLog.length})</span>
+            <span>Timer & Tidsregistrering ({hoursLog.length})</span>
           </button>
 
           <button
@@ -215,7 +215,7 @@ export default function AdminDashboard({
             }`}
           >
             <Image className="w-4 h-4" />
-            <span>Portfolio Manager</span>
+            <span>Porteføljestyring</span>
           </button>
 
           <button
@@ -227,7 +227,7 @@ export default function AdminDashboard({
             }`}
           >
             <ShieldCheck className="w-4 h-4" />
-            <span>Domain Setup (www.idahelia.dk)</span>
+            <span>Domæneopsætning (www.idahelia.dk)</span>
           </button>
         </div>
 

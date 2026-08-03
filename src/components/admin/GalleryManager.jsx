@@ -5,8 +5,8 @@ export default function GalleryManager({ portfolio, setPortfolio }) {
   const [showAddForm, setShowAddForm] = useState(false);
   const [newItem, setNewItem] = useState({
     title: '',
-    category: 'Weddings',
-    location: 'Copenhagen, Denmark',
+    category: 'Bryllupper',
+    location: 'København, Danmark',
     image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80',
     featured: true,
     camera: 'Leica SL2',
@@ -27,8 +27,8 @@ export default function GalleryManager({ portfolio, setPortfolio }) {
     setShowAddForm(false);
     setNewItem({
       title: '',
-      category: 'Weddings',
-      location: 'Copenhagen, Denmark',
+      category: 'Bryllupper',
+      location: 'København, Danmark',
       image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80',
       featured: true,
       camera: 'Leica SL2',
@@ -41,7 +41,7 @@ export default function GalleryManager({ portfolio, setPortfolio }) {
   };
 
   const deletePhoto = (id) => {
-    if (confirm('Delete this photo from portfolio?')) {
+    if (confirm('Vil du slette dette billede fra porteføljen?')) {
       setPortfolio(portfolio.filter(item => item.id !== id));
     }
   };
@@ -51,9 +51,9 @@ export default function GalleryManager({ portfolio, setPortfolio }) {
       
       <div className="bg-brand-darkSlate p-6 rounded-2xl border border-stone-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h2 className="font-serif text-2xl text-white font-normal">Ida's Portfolio Gallery Manager</h2>
+          <h2 className="font-serif text-2xl text-white font-normal">Idas Porteføljestyring</h2>
           <p className="text-xs text-stone-400 font-light mt-1">
-            Manage high-resolution showcase imagery displayed on www.idahelia.dk
+            Administrer højopløselige billeder vist på www.idahelia.dk
           </p>
         </div>
 
@@ -62,22 +62,22 @@ export default function GalleryManager({ portfolio, setPortfolio }) {
           className="px-5 py-2.5 rounded-full bg-brand-gold hover:bg-[#b59871] text-white text-xs font-semibold uppercase tracking-wider flex items-center gap-2 transition-colors shrink-0 shadow-md"
         >
           <Plus className="w-4 h-4" />
-          <span>{showAddForm ? 'Close Form' : 'Upload New Photo'}</span>
+          <span>{showAddForm ? 'Luk Formular' : 'Upload Nyt Billede'}</span>
         </button>
       </div>
 
       {/* Add New Photo Form */}
       {showAddForm && (
         <form onSubmit={handleAddPhoto} className="bg-brand-darkSlate p-6 rounded-2xl border border-stone-800 space-y-4 text-xs">
-          <h3 className="font-serif text-xl text-white font-normal mb-2">New Portfolio Image Entry</h3>
+          <h3 className="font-serif text-xl text-white font-normal mb-2">Ny Porteføljebillede-oprettelse</h3>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-stone-300 mb-1 font-semibold">Title *</label>
+              <label className="block text-stone-300 mb-1 font-semibold">Titel *</label>
               <input
                 type="text"
                 required
-                placeholder="e.g. Nordic Winter Nuptials"
+                placeholder="f.eks. Nordisk Vinterbryllup"
                 value={newItem.title}
                 onChange={(e) => setNewItem({ ...newItem, title: e.target.value })}
                 className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-stone-700 text-white focus:outline-none focus:border-brand-gold"
@@ -85,23 +85,23 @@ export default function GalleryManager({ portfolio, setPortfolio }) {
             </div>
 
             <div>
-              <label className="block text-stone-300 mb-1 font-semibold">Category</label>
+              <label className="block text-stone-300 mb-1 font-semibold">Kategori</label>
               <select
                 value={newItem.category}
                 onChange={(e) => setNewItem({ ...newItem, category: e.target.value })}
                 className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-stone-700 text-white focus:outline-none focus:border-brand-gold"
               >
-                <option value="Weddings">Weddings</option>
-                <option value="Editorial">Editorial</option>
-                <option value="Portraits">Portraits</option>
-                <option value="Commercial">Commercial</option>
+                <option value="Bryllupper">Bryllupper</option>
+                <option value="Moderedaktion">Moderedaktion</option>
+                <option value="Portrætter">Portrætter</option>
+                <option value="Erhverv">Erhverv</option>
               </select>
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-stone-300 mb-1 font-semibold">Image URL *</label>
+              <label className="block text-stone-300 mb-1 font-semibold">Billed-URL *</label>
               <input
                 type="url"
                 required
@@ -112,12 +112,12 @@ export default function GalleryManager({ portfolio, setPortfolio }) {
             </div>
 
             <div>
-              <label className="block text-stone-300 mb-1 font-semibold">Location</label>
+              <label className="block text-stone-300 mb-1 font-semibold">Sted / Lokation</label>
               <input
                 type="text"
                 value={newItem.location}
                 onChange={(e) => setNewItem({ ...newItem, location: e.target.value })}
-                placeholder="Kronborg Castle, Helsingør"
+                placeholder="Kronborg Slot, Helsingør"
                 className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-stone-700 text-white focus:outline-none focus:border-brand-gold"
               />
             </div>
@@ -125,7 +125,7 @@ export default function GalleryManager({ portfolio, setPortfolio }) {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-stone-300 mb-1 font-semibold">Camera Body</label>
+              <label className="block text-stone-300 mb-1 font-semibold">Kamerahus</label>
               <input
                 type="text"
                 value={newItem.camera}
@@ -136,7 +136,7 @@ export default function GalleryManager({ portfolio, setPortfolio }) {
             </div>
 
             <div>
-              <label className="block text-stone-300 mb-1 font-semibold">Lens</label>
+              <label className="block text-stone-300 mb-1 font-semibold">Objektiv</label>
               <input
                 type="text"
                 value={newItem.lens}
@@ -151,7 +151,7 @@ export default function GalleryManager({ portfolio, setPortfolio }) {
             type="submit"
             className="w-full py-3.5 bg-brand-gold hover:bg-[#b59871] text-white font-semibold uppercase tracking-wider rounded-full transition-all mt-2"
           >
-            Add Image To Portfolio
+            Tilføj Billede til Porteføljen
           </button>
         </form>
       )}
@@ -183,7 +183,7 @@ export default function GalleryManager({ portfolio, setPortfolio }) {
                   }`}
                 >
                   <Star className={`w-3.5 h-3.5 ${item.featured ? 'fill-amber-400' : ''}`} />
-                  <span>{item.featured ? 'Featured' : 'Standard'}</span>
+                  <span>{item.featured ? 'Fremhævet' : 'Standard'}</span>
                 </button>
 
                 <button

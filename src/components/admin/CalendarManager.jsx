@@ -3,18 +3,18 @@ import { Calendar as CalendarIcon, Plus, CheckCircle2, Clock, MapPin, User, Tras
 
 export default function CalendarManager({ bookings, setBookings }) {
   const [showAddModal, setShowAddModal] = useState(false);
-  const [filterStatus, setFilterStatus] = useState('All');
+  const [filterStatus, setFilterStatus] = useState('Alle');
   
   const [newBooking, setNewBooking] = useState({
     clientName: '',
     clientEmail: '',
     clientPhone: '',
-    serviceType: 'Luxury Wedding Full-Day',
+    serviceType: 'Eksklusivt Heldagsbryllup',
     date: new Date().toISOString().split('T')[0],
     timeSlot: '10:00 - 22:00',
-    location: 'Copenhagen, Denmark',
+    location: 'København, Danmark',
     priceDKK: 28000,
-    status: 'Confirmed',
+    status: 'Bekræftet',
     notes: ''
   });
 
@@ -34,12 +34,12 @@ export default function CalendarManager({ bookings, setBookings }) {
       clientName: '',
       clientEmail: '',
       clientPhone: '',
-      serviceType: 'Luxury Wedding Full-Day',
+      serviceType: 'Eksklusivt Heldagsbryllup',
       date: new Date().toISOString().split('T')[0],
       timeSlot: '10:00 - 22:00',
-      location: 'Copenhagen, Denmark',
+      location: 'København, Danmark',
       priceDKK: 28000,
-      status: 'Confirmed',
+      status: 'Bekræftet',
       notes: ''
     });
   };
@@ -49,25 +49,25 @@ export default function CalendarManager({ bookings, setBookings }) {
   };
 
   const deleteBooking = (id) => {
-    if (confirm('Are you sure you want to remove this booking from your calendar?')) {
+    if (confirm('Er du sikker på, at du vil fjerne denne aftale fra din kalender?')) {
       setBookings(bookings.filter(b => b.id !== id));
     }
   };
 
-  const filteredBookings = filterStatus === 'All'
+  const filteredBookings = filterStatus === 'Alle'
     ? bookings
     : bookings.filter(b => b.status === filterStatus);
 
   const getStatusBadge = (status) => {
     switch (status) {
-      case 'Confirmed':
-        return <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[11px] font-semibold uppercase tracking-wider flex items-center gap-1"><CheckCircle2 className="w-3 h-3" /> Confirmed</span>;
-      case 'Pending Inquiry':
-        return <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[11px] font-semibold uppercase tracking-wider flex items-center gap-1"><Clock className="w-3 h-3" /> Pending Inquiry</span>;
-      case 'Completed':
-        return <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 text-[11px] font-semibold uppercase tracking-wider flex items-center gap-1"><CheckCircle2 className="w-3 h-3" /> Completed</span>;
-      case 'Blocked Date':
-        return <span className="px-3 py-1 rounded-full bg-rose-500/20 text-rose-400 border border-rose-500/30 text-[11px] font-semibold uppercase tracking-wider flex items-center gap-1"><AlertCircle className="w-3 h-3" /> Blocked / Personal</span>;
+      case 'Bekræftet':
+        return <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[11px] font-semibold uppercase tracking-wider flex items-center gap-1"><CheckCircle2 className="w-3 h-3" /> Bekræftet</span>;
+      case 'Afventer Forespørgsel':
+        return <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[11px] font-semibold uppercase tracking-wider flex items-center gap-1"><Clock className="w-3 h-3" /> Afventer Forespørgsel</span>;
+      case 'Gennemført':
+        return <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 text-[11px] font-semibold uppercase tracking-wider flex items-center gap-1"><CheckCircle2 className="w-3 h-3" /> Gennemført</span>;
+      case 'Blokeret Dato':
+        return <span className="px-3 py-1 rounded-full bg-rose-500/20 text-rose-400 border border-rose-500/30 text-[11px] font-semibold uppercase tracking-wider flex items-center gap-1"><AlertCircle className="w-3 h-3" /> Blokeret Dato / Ferie</span>;
       default:
         return null;
     }
@@ -79,9 +79,9 @@ export default function CalendarManager({ bookings, setBookings }) {
       {/* Action Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-brand-darkSlate p-6 rounded-2xl border border-stone-800">
         <div>
-          <h2 className="font-serif text-2xl text-white font-normal">Ida's Shoot & Availability Calendar</h2>
+          <h2 className="font-serif text-2xl text-white font-normal">Idas Optagelses- & Kalenderoversigt</h2>
           <p className="text-xs text-stone-400 font-light mt-1">
-            Manage photoshoot sessions, approve website inquiries, and set personal blocked dates.
+            Administrer fotograferingsaftaler, godkend hjemmesideforespørgsler og marker blokerede feriedatoer.
           </p>
         </div>
 
@@ -92,11 +92,11 @@ export default function CalendarManager({ bookings, setBookings }) {
             onChange={(e) => setFilterStatus(e.target.value)}
             className="px-4 py-2.5 rounded-full bg-black/40 border border-stone-700 text-stone-300 text-xs focus:outline-none focus:border-brand-gold"
           >
-            <option value="All">All Statuses</option>
-            <option value="Confirmed">Confirmed</option>
-            <option value="Pending Inquiry">Pending Inquiry</option>
-            <option value="Completed">Completed</option>
-            <option value="Blocked Date">Blocked Date</option>
+            <option value="Alle">Alle Statusser</option>
+            <option value="Bekræftet">Bekræftet</option>
+            <option value="Afventer Forespørgsel">Afventer Forespørgsel</option>
+            <option value="Gennemført">Gennemført</option>
+            <option value="Blokeret Dato">Blokeret Dato</option>
           </select>
 
           <button
@@ -104,7 +104,7 @@ export default function CalendarManager({ bookings, setBookings }) {
             className="px-5 py-2.5 rounded-full bg-brand-gold hover:bg-[#b59871] text-white text-xs font-semibold uppercase tracking-wider flex items-center gap-2 transition-colors shrink-0 shadow-md"
           >
             <Plus className="w-4 h-4" />
-            <span>Add New Session</span>
+            <span>Tilføj Ny Session</span>
           </button>
         </div>
       </div>
@@ -153,7 +153,7 @@ export default function CalendarManager({ bookings, setBookings }) {
             {/* Price & Quick Controls */}
             <div className="flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-between gap-4 border-t lg:border-t-0 pt-4 lg:pt-0 border-stone-800">
               <div className="text-left lg:text-right">
-                <span className="text-[10px] text-stone-400 uppercase tracking-widest block">Contract Value</span>
+                <span className="text-[10px] text-stone-400 uppercase tracking-widest block">Kontraktværdi</span>
                 <span className="font-serif text-2xl text-emerald-400 font-medium">
                   {b.priceDKK.toLocaleString('da-DK')} DKK
                 </span>
@@ -165,16 +165,16 @@ export default function CalendarManager({ bookings, setBookings }) {
                   onChange={(e) => updateStatus(b.id, e.target.value)}
                   className="px-3 py-1.5 rounded-lg bg-black/60 border border-stone-700 text-stone-300 text-xs focus:outline-none focus:border-brand-gold"
                 >
-                  <option value="Confirmed">Mark Confirmed</option>
-                  <option value="Pending Inquiry">Mark Pending</option>
-                  <option value="Completed">Mark Completed</option>
-                  <option value="Blocked Date">Mark Blocked</option>
+                  <option value="Bekræftet">Marker Bekræftet</option>
+                  <option value="Afventer Forespørgsel">Marker Afventende</option>
+                  <option value="Gennemført">Marker Gennemført</option>
+                  <option value="Blokeret Dato">Marker Blokeret</option>
                 </select>
 
                 <button
                   onClick={() => deleteBooking(b.id)}
                   className="p-2 rounded-lg bg-rose-500/10 text-rose-400 hover:bg-rose-500/20 transition-colors"
-                  title="Delete Session"
+                  title="Slet aftale"
                 >
                   <Trash2 className="w-4 h-4" />
                 </button>
@@ -196,35 +196,35 @@ export default function CalendarManager({ bookings, setBookings }) {
               <X className="w-5 h-5" />
             </button>
 
-            <h3 className="font-serif text-2xl font-normal text-white mb-6">Schedule New Shoot / Block Date</h3>
+            <h3 className="font-serif text-2xl font-normal text-white mb-6">Planlæg Ny Optagelse / Bloker Dato</h3>
 
             <form onSubmit={handleAddBooking} className="space-y-4 text-xs">
               <div>
-                <label className="block text-stone-300 mb-1 font-semibold">Client Name / Event Title *</label>
+                <label className="block text-stone-300 mb-1 font-semibold">Kundenavn / Begivenhedstitel *</label>
                 <input
                   type="text"
                   required
                   value={newBooking.clientName}
                   onChange={(e) => setNewBooking({ ...newBooking, clientName: e.target.value })}
-                  placeholder="e.g. Vogue Denmark Shoot"
+                  placeholder="f.eks. Vogue Denmark Optagelse"
                   className="w-full px-4 py-3 rounded-xl bg-black/40 border border-stone-700 text-white focus:outline-none focus:border-brand-gold"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-stone-300 mb-1 font-semibold">Email Address</label>
+                  <label className="block text-stone-300 mb-1 font-semibold">E-mailadresse</label>
                   <input
                     type="email"
                     value={newBooking.clientEmail}
                     onChange={(e) => setNewBooking({ ...newBooking, clientEmail: e.target.value })}
-                    placeholder="client@example.dk"
+                    placeholder="klient@example.dk"
                     className="w-full px-4 py-3 rounded-xl bg-black/40 border border-stone-700 text-white focus:outline-none focus:border-brand-gold"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-stone-300 mb-1 font-semibold">Phone Number</label>
+                  <label className="block text-stone-300 mb-1 font-semibold">Telefonnummer</label>
                   <input
                     type="tel"
                     value={newBooking.clientPhone}
@@ -237,7 +237,7 @@ export default function CalendarManager({ bookings, setBookings }) {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-stone-300 mb-1 font-semibold">Shoot Date *</label>
+                  <label className="block text-stone-300 mb-1 font-semibold">Skuddato *</label>
                   <input
                     type="date"
                     required
@@ -248,7 +248,7 @@ export default function CalendarManager({ bookings, setBookings }) {
                 </div>
 
                 <div>
-                  <label className="block text-stone-300 mb-1 font-semibold">Time Slot</label>
+                  <label className="block text-stone-300 mb-1 font-semibold">Tidsrum</label>
                   <input
                     type="text"
                     value={newBooking.timeSlot}
@@ -261,18 +261,18 @@ export default function CalendarManager({ bookings, setBookings }) {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-stone-300 mb-1 font-semibold">Service Type</label>
+                  <label className="block text-stone-300 mb-1 font-semibold">Ydelsestype</label>
                   <input
                     type="text"
                     value={newBooking.serviceType}
                     onChange={(e) => setNewBooking({ ...newBooking, serviceType: e.target.value })}
-                    placeholder="e.g. Editorial Fashion"
+                    placeholder="f.eks. Editorial Modeoptagelse"
                     className="w-full px-4 py-3 rounded-xl bg-black/40 border border-stone-700 text-white focus:outline-none focus:border-brand-gold"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-stone-300 mb-1 font-semibold">Total Price (DKK)</label>
+                  <label className="block text-stone-300 mb-1 font-semibold">Samlet Pris (DKK)</label>
                   <input
                     type="number"
                     value={newBooking.priceDKK}
@@ -283,12 +283,12 @@ export default function CalendarManager({ bookings, setBookings }) {
               </div>
 
               <div>
-                <label className="block text-stone-300 mb-1 font-semibold">Location / Venue</label>
+                <label className="block text-stone-300 mb-1 font-semibold">Lokation / Sted</label>
                 <input
                   type="text"
                   value={newBooking.location}
                   onChange={(e) => setNewBooking({ ...newBooking, location: e.target.value })}
-                  placeholder="Kokkedal Castle, Copenhagen"
+                  placeholder="Kokkedal Slot, København"
                   className="w-full px-4 py-3 rounded-xl bg-black/40 border border-stone-700 text-white focus:outline-none focus:border-brand-gold"
                 />
               </div>
@@ -300,9 +300,9 @@ export default function CalendarManager({ bookings, setBookings }) {
                   onChange={(e) => setNewBooking({ ...newBooking, status: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl bg-black/40 border border-stone-700 text-white focus:outline-none focus:border-brand-gold"
                 >
-                  <option value="Confirmed">Confirmed</option>
-                  <option value="Pending Inquiry">Pending Inquiry</option>
-                  <option value="Blocked Date">Blocked / Personal Vacation</option>
+                  <option value="Bekræftet">Bekræftet</option>
+                  <option value="Afventer Forespørgsel">Afventer Forespørgsel</option>
+                  <option value="Blokeret Dato">Blokeret Dato / Ferie</option>
                 </select>
               </div>
 
@@ -310,7 +310,7 @@ export default function CalendarManager({ bookings, setBookings }) {
                 type="submit"
                 className="w-full py-4 bg-brand-gold hover:bg-[#b59871] text-white text-xs font-semibold uppercase tracking-widest rounded-full transition-all mt-4"
               >
-                Add To Calendar
+                Gem i Kalender
               </button>
             </form>
           </div>

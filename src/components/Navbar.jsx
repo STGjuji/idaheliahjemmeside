@@ -14,11 +14,11 @@ export default function Navbar({ activeTab, setActiveTab, isAdminOpen, setIsAdmi
   }, []);
 
   const navLinks = [
-    { id: 'gallery', label: 'Portfolio' },
-    { id: 'inspiration', label: 'Inspiration & Style' },
-    { id: 'pricing', label: 'Packages & Pricing' },
+    { id: 'gallery', label: 'Portefølje' },
+    { id: 'inspiration', label: 'Inspiration & Stil' },
+    { id: 'pricing', label: 'Pakker & Priser' },
     { id: 'booking', label: 'Book Session' },
-    { id: 'about', label: 'About Ida' },
+    { id: 'about', label: 'Om Ida' },
   ];
 
   return (
@@ -37,7 +37,7 @@ export default function Navbar({ activeTab, setActiveTab, isAdminOpen, setIsAdmi
               IDA HELIA
             </span>
             <span className="text-[10px] tracking-[0.25em] text-brand-stone uppercase">
-              Photography • Copenhagen
+              Fotografi • Danmark
             </span>
           </div>
         </a>
@@ -78,7 +78,7 @@ export default function Navbar({ activeTab, setActiveTab, isAdminOpen, setIsAdmi
             }`}
           >
             {isAdminOpen ? <Sparkles className="w-3.5 h-3.5" /> : <Lock className="w-3.5 h-3.5 text-brand-goldLight" />}
-            <span>{isAdminOpen ? 'Client View' : "Ida's Admin Studio"}</span>
+            <span>{isAdminOpen ? 'Klientvisning' : "Idas Admin Studie"}</span>
             {bookingCount > 0 && !isAdminOpen && (
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping ml-1" />
             )}
@@ -89,7 +89,7 @@ export default function Navbar({ activeTab, setActiveTab, isAdminOpen, setIsAdmi
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="lg:hidden p-2 text-brand-charcoal hover:text-brand-gold transition-colors"
-          aria-label="Toggle Navigation Menu"
+          aria-label="Åbn Menu"
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -124,7 +124,7 @@ export default function Navbar({ activeTab, setActiveTab, isAdminOpen, setIsAdmi
               className="flex items-center justify-center gap-2 text-xs tracking-wider uppercase px-4 py-3 rounded-full bg-brand-charcoal text-white mt-2"
             >
               <Lock className="w-4 h-4 text-brand-goldLight" />
-              <span>{isAdminOpen ? 'Exit Admin View' : "Open Ida's Admin Studio"}</span>
+              <span>{isAdminOpen ? 'Luk Adminvisning' : "Åbn Idas Admin Studie"}</span>
             </button>
           </div>
         </div>
