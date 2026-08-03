@@ -26,7 +26,7 @@ export const initialPortfolio = [
     title: "Minimalistisk Arkitektonisk Portræt",
     category: "Portrætter",
     location: "DAC (Dansk Arkitektur Center)",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80",
+    image: "/dist/assets/headshot.jpeg",
     featured: true,
     camera: "Canon EOS R5",
     lens: "85mm f/1.2 L USM",

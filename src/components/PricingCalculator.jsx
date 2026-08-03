@@ -14,7 +14,7 @@ export default function PricingCalculator({ onSelectPackage }) {
   const basePackages = {
     'full-wedding': {
       name: "Eksklusivt Heldagsbryllup",
-      basePrice: 28000,
+      basePrice: 3000,
       hours: 10,
       description: "Komplet signaturdækning fra morgenens forberedelser til brudevalsen.",
       includes: ["10 Timers Kontinuerlig Dækning", "Privat Online Klientgalleri", "500+ Håndredigerede Billeder i Høj Opløsning", "Fuld Tryk- og Brugsret"]

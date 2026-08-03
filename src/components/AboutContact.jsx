@@ -5,7 +5,7 @@ export default function AboutContact() {
   const instagramPosts = [
     { id: 1, image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=500&q=80", likes: "1.240" },
     { id: 2, image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=500&q=80", likes: "2.890" },
-    { id: 3, image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80", likes: "940" },
+    { id: 3, image: "/dist/assets/headshot.jpeg", likes: "940" },
     { id: 4, image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=500&q=80", likes: "3.110" }
   ];
 
@@ -20,26 +20,14 @@ export default function AboutContact() {
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
               <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=85"
+                src="/dist/assets/headshot.jpeg"
                 alt="Ida Helia Fotograf"
                 className="w-full h-[540px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 text-white">
-                <span className="text-xs tracking-widest text-brand-gold uppercase font-semibold block mb-1">
-                  Cheffotograf
-                </span>
                 <h3 className="font-serif text-2xl font-normal">Ida Helia</h3>
-                <p className="text-xs text-stone-300 font-light">København • Tilgængelig i Hele Verden</p>
-              </div>
-            </div>
-
-            {/* Experience Badge Floating */}
-            <div className="absolute -bottom-6 -right-6 bg-brand-charcoal text-white rounded-2xl p-5 shadow-xl border border-stone-800 hidden sm:flex items-center gap-3 max-w-xs">
-              <Award className="w-8 h-8 text-brand-gold shrink-0" />
-              <div>
-                <span className="text-xs font-semibold uppercase tracking-wider text-brand-gold block">Prisvindende Fotograf</span>
-                <span className="text-[11px] text-stone-300 font-light">Omtalt i Vogue Scandinavia & Eurowoman</span>
+               
               </div>
             </div>
           </div>
@@ -72,18 +60,18 @@ export default function AboutContact() {
                 <span className="block font-serif text-2xl text-brand-charcoal font-normal">140+</span>
                 <span className="text-xs text-stone-500 font-light">Bryllupper & Reportager</span>
               </div>
-              <div>
+              {/* <div>
                 <span className="block font-serif text-2xl text-brand-charcoal font-normal">København</span>
                 <span className="text-xs text-stone-500 font-light">Studie & Atelier</span>
-              </div>
+              </div> */}
             </div>
 
             {/* Studio Info */}
-            <div className="bg-white p-6 rounded-xl border border-stone-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            {/* <div className="bg-white p-6 rounded-xl border border-stone-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div className="space-y-1">
                 <div className="flex items-center gap-2 text-xs font-semibold text-brand-charcoal">
                   <MapPin className="w-4 h-4 text-brand-gold" />
-                  <span>Ida Helia Studie København</span>
+                  <span>Ida Helia Studie Slagelse</span>
                 </div>
                 <p className="text-xs text-stone-500 font-light">Store Kongensgade 42, 1264 København K</p>
               </div>
@@ -94,7 +82,7 @@ export default function AboutContact() {
                   ida@idahelia.dk
                 </a>
               </div>
-            </div>
+            </div> */}
 
           </div>
 
