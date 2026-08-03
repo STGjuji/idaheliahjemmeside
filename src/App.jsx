@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Top3Inspiration from './components/Top3Inspiration';
 import Gallery from './components/Gallery';
 import PricingCalculator from './components/PricingCalculator';
 import PublicBookingForm from './components/PublicBookingForm';
@@ -93,10 +92,7 @@ export default function App() {
               if (el) el.scrollIntoView({ behavior: 'smooth' });
             }}
           />
-
-          {/* Top 3 Photographer Website Design Inspiration & Analysis */}
-          <Top3Inspiration />
-
+          
           {/* Filterable Portfolio Gallery */}
           <Gallery items={portfolio} />
 
