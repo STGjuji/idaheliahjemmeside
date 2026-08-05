@@ -15,7 +15,7 @@ export default function Navbar({ activeTab, setActiveTab, isAdminOpen, setIsAdmi
 
   const navLinks = [
     { id: 'gallery', label: 'Portefølje' },
-    { id: 'inspiration', label: 'Inspiration & Stil' },
+    // { id: 'inspiration', label: 'Inspiration & Stil' },
     { id: 'pricing', label: 'Pakker & Priser' },
     { id: 'booking', label: 'Book Session' },
     { id: 'about', label: 'Om Ida' },

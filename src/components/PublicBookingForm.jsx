@@ -78,7 +78,7 @@ export default function PublicBookingForm({ onNewBookingSubmit, preselectedPacka
                   Direkte Bookingforespørgsel
                 </h2>
                 <p className="text-stone-500 text-xs md:text-sm font-light">
-                  Book dit 2026/2027 bryllup, din moderedaktion eller portrætsession i Danmark eller udlandet.
+                  Book dit bryllup, din moderedaktion eller portrætsession i Danmark eller udlandet.
                 </p>
               </div>
 
