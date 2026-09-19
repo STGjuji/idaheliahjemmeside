@@ -44,7 +44,7 @@ if [ "$SETUP" -eq 1 ]; then
       apt-get update
       DEBIAN_FRONTEND=noninteractive apt-get install -y nginx
     fi
-    mkdir -p /var/www/idaheliahjemmeside /etc/nginx/sites-available /etc/nginx/sites-enabled
+    mkdir -p /var/www/idaheliahjemmeside
   '
   pct push "$VMID" "$SCRIPT_DIR/nginx-idaheliahjemmeside.conf" "/etc/nginx/sites-available/idaheliahjemmeside.conf"
   pct exec "$VMID" -- bash -c '
