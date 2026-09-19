@@ -5,7 +5,7 @@ A modern, responsive photography portfolio and booking site built with **React**
 
 ---
 
-## ✨ Features
+## Features
 - **Responsive design** – works on mobile, tablet, and desktop.
 - **Dynamic portfolio gallery** – data persisted in `localStorage`.
 - **Pricing calculator** – interactive UI that updates total price in DKK.
@@ -16,7 +16,7 @@ A modern, responsive photography portfolio and booking site built with **React**
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 - **React 18** – component‑based UI.
 - **Vite** – fast dev server and build tooling.
 - **Tailwind CSS** – utility‑first styling.
@@ -25,7 +25,7 @@ A modern, responsive photography portfolio and booking site built with **React**
 
 ---
 
-## 📦 Installation
+## Installation
 ```bash
 # Clone the repository
 git clone https://github.com/STGjuji/idaheliahjemmeside.git
@@ -37,7 +37,7 @@ npm install
 
 ---
 
-## 🚀 Development
+## evelopment
 ```bash
 # Start the dev server (http://localhost:5173)
 npm run dev
@@ -46,7 +46,7 @@ The site supports hot‑module replacement – changes appear instantly.
 
 ---
 
-## 📦 Build for Production
+##  Build for Production
 ```bash
 npm run build
 ```
@@ -54,7 +54,7 @@ The build output is placed in the `dist/` folder and can be served with any stat
 
 ---
 
-## 🧭 Project Structure
+## Project Structure
 ```
 ├─ public/            # Static assets (favicon, etc.)
 ├─ src/
@@ -67,13 +67,7 @@ The build output is placed in the `dist/` folder and can be served with any stat
 ├─ postcss.config.js
 └─ package.json
 ```
-
 ---
 
-## 🙋‍♀️ Contributing
-Contributions are welcome! Feel free to open an issue or submit a pull request.
-
----
-
-## 📄 License
+##  License
 This project is licensed under the MIT License – see the `LICENSE` file for details.
