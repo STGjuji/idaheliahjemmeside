@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
-import { Calendar as CalendarIcon, CheckCircle2, Send, Clock, User, Mail, Phone, MapPin, Sparkles } from 'lucide-react';
+import { Calendar as CalendarIcon, CheckCircle2, Send, User, Mail, Phone, MapPin } from 'lucide-react';
+import { allPackageNames } from '../data/pricingData';
 
 export default function PublicBookingForm({ onNewBookingSubmit, preselectedPackage }) {
+  const packageOptions = preselectedPackage && !allPackageNames.includes(preselectedPackage)
+    ? [...allPackageNames, preselectedPackage]
+    : allPackageNames;
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     date: '',
-    serviceType: preselectedPackage || 'Eksklusivt Heldagsbryllup',
+    serviceType: preselectedPackage || allPackageNames[0],
     location: '',
     notes: ''
   });
@@ -26,8 +31,8 @@ export default function PublicBookingForm({ onNewBookingSubmit, preselectedPacka
       serviceType: formData.serviceType,
       date: formData.date,
       timeSlot: 'Aftales ved konsultation',
-      location: formData.location || 'Danmark',
-      priceDKK: 24000,
+      location: formData.location || 'Slagelse / Sjælland',
+      priceDKK: 0,
       status: 'Afventer Forespørgsel',
       notes: formData.notes,
       paidDeposit: false
@@ -78,7 +83,7 @@ export default function PublicBookingForm({ onNewBookingSubmit, preselectedPacka
                   Direkte Bookingforespørgsel
                 </h2>
                 <p className="text-stone-500 text-xs md:text-sm font-light">
-                  Book dit bryllup, din moderedaktion eller portrætsession i Danmark eller udlandet.
+                  Book din gravidfotografering, børnesession, dit bryllup eller din portrætfotografering – i Slagelse eller på hele Sjælland.
                 </p>
               </div>
 
@@ -156,11 +161,11 @@ export default function PublicBookingForm({ onNewBookingSubmit, preselectedPacka
                     onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl border border-stone-200 text-xs focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-all bg-white"
                   >
-                    <option value="Eksklusivt Heldagsbryllup">Eksklusivt Heldagsbryllup (10h+)</option>
-                    <option value="Intimt Bryllup & Vielse">Intimt Bryllup & Vielse (5h)</option>
-                    <option value="Editorial Modeoptagelse">Editorial Modeoptagelse</option>
-                    <option value="Signatur Portrætsession">Signatur Portrætsession</option>
-                    <option value="Erhvervskampagne">Erhvervskampagne</option>
+                    {packageOptions.map((name) => (
+                      <option key={name} value={name}>
+                        {name}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
@@ -172,7 +177,7 @@ export default function PublicBookingForm({ onNewBookingSubmit, preselectedPacka
                   </label>
                   <input
                     type="text"
-                    placeholder="f.eks. Kokkedal Slot / Danmark"
+                    placeholder="f.eks. Slagelse / Sjælland"
                     value={formData.location}
                     onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl border border-stone-200 text-xs focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-all"

@@ -39,15 +39,19 @@ export default function AboutContact() {
             </span>
 
             <h2 className="font-serif text-3xl md:text-5xl text-brand-charcoal font-normal tracking-tight leading-tight">
-              Afdæmpet Luksus, Ægte Følelser og Bevidst Lys
+              Smukke, ægte øjeblikke – foreviget med nærvær, ro og kærlighed
             </h2>
 
             <p className="text-stone-600 text-sm md:text-base font-light leading-relaxed">
-              Mit navn er <span className="font-medium text-brand-charcoal">Ida Helia</span>. Jeg er bryllups-, portræt- og editorial-fotograf baseret i København. Mit arbejde er præget af skandinavisk minimalisme: rene kompositioner, naturligt nordisk lys og ægte intimitet.
+              Mit navn er <span className="font-medium text-brand-charcoal">Ida Helia</span>. Jeg er fotograf med base i Slagelse og fotograferer graviditet, familie, nyfødte, børn og bryllupper på hele Sjælland. Mit arbejde er præget af nærvær, ro og ægte øjeblikke – billeder, der føles som jer, og som I vil elske at huske.
             </p>
 
             <p className="text-stone-600 text-sm font-light leading-relaxed">
-              Uanset om jeg dokumenterer et 3-dages bryllupsarrangement på et nordisk gods eller fotografere en modekampagne for skandinaviske designhuse, går jeg til enhver opgave med malerisk præcision og et roligt nærvær.
+              Hos mig handler fotografering ikke om at stå perfekt foran kameraet. Det handler om at skabe billeder, der føles som jer – naturlige, varme og fulde af de små øjeblikke, I gerne vil huske. Jeg guider jer hele vejen, så I kan slappe af og være i øjeblikket, mens de ægte smil kommer frem.
+            </p>
+
+            <p className="text-stone-600 text-sm font-light leading-relaxed italic">
+              Fotografering med nærvær · ægte øjeblikke · minder for livet
             </p>
 
             {/* Accolades & Press */}
@@ -58,7 +62,7 @@ export default function AboutContact() {
               </div>
               <div>
                 <span className="block font-serif text-2xl text-brand-charcoal font-normal">140+</span>
-                <span className="text-xs text-stone-500 font-light">Bryllupper & Reportager</span>
+                <span className="text-xs text-stone-500 font-light">Gennemførte Fotograferinger</span>
               </div>
               {/* <div>
                 <span className="block font-serif text-2xl text-brand-charcoal font-normal">København</span>
