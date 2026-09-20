@@ -1,13 +1,49 @@
-import React from 'react';
-import { MapPin, Instagram, Mail, Phone, Award, Camera, Heart } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Instagram, Heart, Loader2, AlertTriangle } from 'lucide-react';
+
+const INSTAGRAM_ACCESS_TOKEN = "";
+
+const instagramPosts = [
+  { id: 1, image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=500&q=80", likes: "1.240" },
+  { id: 2, image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=500&q=80", likes: "2.890" },
+  { id: 3, image: "/dist/assets/headshot.jpeg", likes: "940" },
+  { id: 4, image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=500&q=80", likes: "3.110" }
+];
 
 export default function AboutContact() {
-  const instagramPosts = [
-    { id: 1, image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=500&q=80", likes: "1.240" },
-    { id: 2, image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=500&q=80", likes: "2.890" },
-    { id: 3, image: "/dist/assets/headshot.jpeg", likes: "940" },
-    { id: 4, image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=500&q=80", likes: "3.110" }
-  ];
+  const [igPosts, setIgPosts] = useState([]);
+  const [igStatus, setIgStatus] = useState('idle');
+
+  useEffect(() => {
+    if (!INSTAGRAM_ACCESS_TOKEN) return;
+    let cancelled = false;
+    setIgStatus('loading');
+    fetch(
+      `https://graph.instagram.com/me/media?fields=id,media_type,media_url,thumbnail_url,permalink&limit=8&access_token=${INSTAGRAM_ACCESS_TOKEN}`
+    )
+      .then((res) => {
+        if (!res.ok) throw new Error('Instagram API-fejl');
+        return res.json();
+      })
+      .then((data) => {
+        if (cancelled) return;
+        const posts = (data.data || [])
+          .map((p) => ({
+            id: p.id,
+            image: p.media_url || p.thumbnail_url,
+            permalink: p.permalink
+          }))
+          .filter((p) => p.image);
+        setIgPosts(posts);
+        setIgStatus('ready');
+      })
+      .catch(() => {
+        if (!cancelled) setIgStatus('error');
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   return (
     <section id="about" className="py-24 bg-[#F3EFEA] border-t border-[#E8D5C4]/40">
@@ -97,7 +133,7 @@ export default function AboutContact() {
           <div className="flex flex-col sm:flex-row items-center justify-between mb-8">
             <div>
               <span className="text-xs tracking-widest text-brand-gold uppercase font-semibold block">Følg Med</span>
-              <h3 className="font-serif text-2xl text-brand-charcoal font-normal">@idahelia.photography</h3>
+              <h3 className="font-serif text-2xl text-brand-charcoal font-normal">@fotograf.idahelia</h3>
             </div>
             <a
               href="https://www.instagram.com/fotograf.idahelia"
@@ -110,21 +146,61 @@ export default function AboutContact() {
             </a>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {instagramPosts.map((post) => (
-              <div key={post.id} className="group relative rounded-xl overflow-hidden shadow-sm h-64 bg-stone-200 cursor-pointer">
-                <img
-                  src={post.image}
-                  alt="Instagram opslag"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white gap-2 font-medium text-xs">
-                  <Heart className="w-4 h-4 text-rose-400 fill-rose-400" />
-                  <span>{post.likes}</span>
+          {igStatus === 'idle' && (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {instagramPosts.map((post) => (
+                <div key={post.id} className="group relative rounded-xl overflow-hidden shadow-sm h-64 bg-stone-200 cursor-pointer">
+                  <img
+                    src={post.image}
+                    alt="Instagram opslag"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white gap-2 font-medium text-xs">
+                    <Heart className="w-4 h-4 text-rose-400 fill-rose-400" />
+                    <span>{post.likes}</span>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
+
+          {igStatus === 'loading' && (
+            <div className="flex items-center justify-center gap-2 h-64 bg-white/50 rounded-xl border border-stone-200 text-brand-stone">
+              <Loader2 className="w-5 h-5 animate-spin text-brand-gold" />
+              <span className="text-xs font-light">Henter seneste opslag fra Instagram…</span>
+            </div>
+          )}
+
+          {igStatus === 'error' && (
+            <div className="flex items-center justify-center gap-2 h-40 bg-white/50 rounded-xl border border-stone-200 text-brand-stone">
+              <AlertTriangle className="w-5 h-5 text-brand-gold" />
+              <span className="text-xs font-light">Kunne ikke hente Instagram-opslag lige nu.</span>
+            </div>
+          )}
+
+          {igStatus === 'ready' && (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {igPosts.map((post) => (
+                <a
+                  key={post.id}
+                  href={post.permalink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative block rounded-xl overflow-hidden shadow-sm h-64 bg-stone-200"
+                >
+                  <img
+                    src={post.image}
+                    alt="Seneste Instagram-opslag"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white gap-2 font-medium text-xs">
+                    <Instagram className="w-4 h-4 text-brand-goldLight" />
+                    <span>Se opslag</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          )}
         </div>
 
       </div>
