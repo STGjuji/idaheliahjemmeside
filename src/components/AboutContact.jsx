@@ -56,30 +56,7 @@ export default function AboutContact() {
                 <span className="block font-serif text-2xl text-brand-charcoal font-normal">140+</span>
                 <span className="text-xs text-stone-500 font-light">Gennemførte Fotograferinger</span>
               </div>
-              {/* <div>
-                <span className="block font-serif text-2xl text-brand-charcoal font-normal">København</span>
-                <span className="text-xs text-stone-500 font-light">Studie & Atelier</span>
-              </div> */}
             </div>
-
-            {/* Studio Info */}
-            {/* <div className="bg-white p-6 rounded-xl border border-stone-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div className="space-y-1">
-                <div className="flex items-center gap-2 text-xs font-semibold text-brand-charcoal">
-                  <MapPin className="w-4 h-4 text-brand-gold" />
-                  <span>Ida Helia Studie Slagelse</span>
-                </div>
-                <p className="text-xs text-stone-500 font-light">Store Kongensgade 42, 1264 København K</p>
-              </div>
-
-              <div className="flex items-center gap-4 text-xs">
-                <a href="mailto:ida@idahelia.dk" className="text-brand-charcoal hover:text-brand-gold font-medium flex items-center gap-1">
-                  <Mail className="w-3.5 h-3.5" />
-                  ida@idahelia.dk
-                </a>
-              </div>
-            </div> */}
-
           </div>
 
         </div>
