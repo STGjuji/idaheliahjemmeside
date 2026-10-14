@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Calendar as CalendarIcon, CheckCircle2, Send, User, Mail, Phone, MapPin } from 'lucide-react';
+import { Calendar as CalendarIcon, CheckCircle2, Send, User, Mail, Phone, MapPin, AlertCircle } from 'lucide-react';
 import { allPackageNames } from '../data/pricingData';
+
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/947d8c20cf81c13ae64d91035a52ba40';
 
 export default function PublicBookingForm({ preselectedPackage }) {
   const packageOptions = preselectedPackage && !allPackageNames.includes(preselectedPackage)
@@ -18,12 +20,43 @@ export default function PublicBookingForm({ preselectedPackage }) {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState('idle'); // 'idle' | 'sending' | 'error'
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.date) return;
 
-    setSubmitted(true);
+    setStatus('sending');
+
+    try {
+      const response = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          Navn: formData.name,
+          Email: formData.email,
+          Telefon: formData.phone || 'Ikke angivet',
+          Dato: formData.date,
+          Pakke: formData.serviceType,
+          Lokation: formData.location || 'Ikke angivet',
+          Besked: formData.notes || 'Ingen yderligere bemærkninger',
+          _subject: `Ny bookingforespørgsel fra ${formData.name}`,
+          _template: 'table',
+          _captcha: 'false',
+          _replyto: formData.email
+        })
+      });
+
+      if (!response.ok) throw new Error('Request failed');
+
+      setStatus('idle');
+      setSubmitted(true);
+    } catch (err) {
+      setStatus('error');
+    }
   };
 
   return (
@@ -184,12 +217,22 @@ export default function PublicBookingForm({ preselectedPackage }) {
                 />
               </div>
 
+              {status === 'error' && (
+                <div className="flex items-start gap-3 p-4 rounded-xl border border-red-200 bg-red-50 text-red-700 text-xs font-light">
+                  <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                  <span>
+                    Der skete en fejl under afsendelsen. Prøv igen om lidt, eller kontakt Ida direkte.
+                  </span>
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full py-4 bg-brand-charcoal hover:bg-brand-darkSlate text-white text-xs font-medium uppercase tracking-[0.2em] rounded-full transition-all flex items-center justify-center gap-2 shadow-lg"
+                disabled={status === 'sending'}
+                className="w-full py-4 bg-brand-charcoal hover:bg-brand-darkSlate text-white text-xs font-medium uppercase tracking-[0.2em] rounded-full transition-all flex items-center justify-center gap-2 shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 <Send className="w-4 h-4 text-brand-gold" />
-                <span>Send Forespørgsel til Ida Helia</span>
+                <span>{status === 'sending' ? 'Sender...' : 'Send Forespørgsel til Ida Helia'}</span>
               </button>
 
             </form>

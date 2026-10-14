@@ -21,7 +21,11 @@ const categoryById = Object.fromEntries(galleryCategoriesMeta.map((cat) => [cat.
 
 const categoryOrder = galleryCategoriesMeta.map((cat) => cat.id);
 
-const location = 'Slagelse & Sjælland';
+const coverOverrides = {
+  bryllup: 'BA5A0532.jpg',
+  barnedaab: 'BA5A1147.jpg',
+  par: '20260624_190721410_iOS.jpg'
+};
 
 const photoEntries = Object.entries(photoModules)
   .map(([path, url]) => {
@@ -29,13 +33,17 @@ const photoEntries = Object.entries(photoModules)
     const categoryId = parts[parts.length - 2];
     const category = categoryById[categoryId];
     if (!category) return null;
-    return { file: parts[parts.length - 1], categoryId, categoryName: category.name, url };
+    const file = parts[parts.length - 1];
+    return { file, categoryId, categoryName: category.name, url, isCover: !!(coverOverrides[categoryId] && coverOverrides[categoryId] === file) };
   })
   .filter(Boolean);
 
 photoEntries.sort((a, b) => {
   const orderDiff = categoryOrder.indexOf(a.categoryId) - categoryOrder.indexOf(b.categoryId);
   if (orderDiff !== 0) return orderDiff;
+  const aCover = a.isCover ? -1 : 0;
+  const bCover = b.isCover ? -1 : 0;
+  if (aCover !== bCover) return aCover - bCover;
   return a.file.localeCompare(b.file, 'da', { numeric: true, sensitivity: 'base' });
 });
 
