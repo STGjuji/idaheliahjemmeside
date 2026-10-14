@@ -24,7 +24,7 @@ export default function Footer({ onOpenAdmin }) {
               </span>
             </div>
             <p className="text-xs text-stone-400 font-light max-w-md leading-relaxed">
-              Redaktionel, kommerciel og eksklusiv bryllupsfotografering i København, Danmark og i hele verden. Designet med afdæmpet skandinavisk luksus og nærvær.
+              Fotografering med nærvær – graviditet, familie, børn, nyfødte og bryllupper i Slagelse og på hele Sjælland. Ægte øjeblikke og minder for livet.
             </p>
             <div className="text-xs text-brand-gold font-medium flex items-center gap-2">
               <Globe className="w-4 h-4" />

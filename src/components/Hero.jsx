@@ -4,21 +4,21 @@ import { ArrowDown, Calendar, Camera, Sparkles } from 'lucide-react';
 const heroSlides = [
   {
     image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85",
-    subtitle: "BRYLLUPS- OG EDITORIAL FOTOGRAFERING",
-    title: "Tidsløst Lys & Afdæmpet Skandinavisk Elegance",
-    location: "Danmark & Bryllupper i Hele Verden"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=2000&q=85",
-    subtitle: "VOGUE & FASHION KAMPAGNER",
-    title: "Rå Elegance & Høj Kunstnerisk Æstetik",
-    location: "Studie & Lokationsprojekter"
+    subtitle: "GRAVIDITET · FAMILIE · BØRN",
+    title: "Smukke, ægte øjeblikke med nærvær",
+    location: "Slagelse & hele Sjælland"
   },
   {
     image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2000&q=85",
-    subtitle: "PORTRÆTTER & ARKITEKTUR",
-    title: "Autentisk Nærvær, Karakter & Form",
-    location: "Skandinavien • Europa"
+    subtitle: "BRYLLUPPER · BARNEDÅB · KONFIRMATION",
+    title: "Jeres største dage, gemt for altid",
+    location: "Kirker, haver & lokationer"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=2000&q=85",
+    subtitle: "PORTRÆTTER · NYFØDTE · KÆLEDYR",
+    title: "Naturligt lys, ægte smil & varme",
+    location: "Udendørs eller efter aftale"
   }
 ];
 
@@ -71,7 +71,7 @@ export default function Hero({ onBookClick, onPortfolioClick }) {
         </h1>
 
         <p className="text-sm md:text-base text-stone-300 font-light tracking-wide mb-10 max-w-2xl">
-          Skaber stemningsfulde, eksklusive visuelle fortællinger for luksusbryllupper, moderedaktioner og arkitektoniske portrætter.
+          Hos mig handler fotografering ikke om at stå perfekt foran kameraet – men om at skabe billeder, der føles som jer: naturlige, varme og fulde af de små øjeblikke, I gerne vil huske.
         </p>
 
         {/* CTA Buttons */}
