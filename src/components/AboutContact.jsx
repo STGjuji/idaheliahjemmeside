@@ -1,4 +1,5 @@
 import React from 'react';
+import portraitImage from '../assets/headshot.jpeg';
 
 export default function AboutContact() {
   return (
@@ -12,7 +13,7 @@ export default function AboutContact() {
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
               <img
-                src="/dist/assets/headshot.jpeg"
+                src={portraitImage}
                 alt="Ida Helia Fotograf"
                 className="w-full h-[540px] object-cover"
               />

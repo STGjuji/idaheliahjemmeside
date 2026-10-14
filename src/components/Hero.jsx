@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowDown, Calendar, Camera, Sparkles } from 'lucide-react';
+import { getCategoryCover } from '../data/portfolioData';
 
 const heroSlides = [
   {
-    image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85",
-    subtitle: "GRAVIDITET · FAMILIE · BØRN",
-    title: "Smukke, ægte øjeblikke med nærvær",
+    image: getCategoryCover('bryllup'),
+    subtitle: "BRYLLUPPER · VIELSE · KÆRLIGHED",
+    title: "Jeres største dag, gemt for altid",
+    location: "Kirker, haver & festlokaler"
+  },
+  {
+    image: getCategoryCover('barnedaab'),
+    subtitle: "BARNEDÅB · FAMILIE · NYFØDTE",
+    title: "De små øjeblikke, der betyder mest",
     location: "Slagelse & hele Sjælland"
   },
   {
-    image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2000&q=85",
-    subtitle: "BRYLLUPPER · BARNEDÅB · KONFIRMATION",
-    title: "Jeres største dage, gemt for altid",
-    location: "Kirker, haver & lokationer"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=2000&q=85",
-    subtitle: "PORTRÆTTER · NYFØDTE · KÆLEDYR",
+    image: getCategoryCover('par'),
+    subtitle: "PAR · FORLOVELSER · PORTRÆTTER",
     title: "Naturligt lys, ægte smil & varme",
     location: "Udendørs eller efter aftale"
   }

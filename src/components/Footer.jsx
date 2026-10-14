@@ -1,7 +1,7 @@
 import React from 'react';
-import { Camera, Lock, Heart, Globe, ArrowUp } from 'lucide-react';
+import { Globe, ArrowUp } from 'lucide-react';
 
-export default function Footer({ onOpenAdmin }) {
+export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -11,7 +11,7 @@ export default function Footer({ onOpenAdmin }) {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* Top Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 pb-12 border-b border-stone-800">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 pb-12 border-b border-stone-800">
           
           {/* Brand */}
           <div className="space-y-4 md:col-span-2">
@@ -37,26 +37,10 @@ export default function Footer({ onOpenAdmin }) {
             <h4 className="text-xs font-bold uppercase tracking-wider text-brand-gold">Navigation</h4>
             <ul className="space-y-2 text-xs text-stone-300 font-light">
               <li><a href="#gallery" className="hover:text-brand-gold transition-colors">Portefølje</a></li>
-              <li><a href="#inspiration" className="hover:text-brand-gold transition-colors">Design & Stil-analyse</a></li>
               <li><a href="#pricing" className="hover:text-brand-gold transition-colors">Pakker & Priser</a></li>
               <li><a href="#booking" className="hover:text-brand-gold transition-colors">Book Session</a></li>
               <li><a href="#about" className="hover:text-brand-gold transition-colors">Om Ida Helia</a></li>
             </ul>
-          </div>
-
-          {/* Admin & Rights */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-brand-gold">Studieadministrationsportal</h4>
-            <p className="text-xs text-stone-400 font-light">
-              Kalenderstyring, time- og faktureregistrering samt domæneopsætning.
-            </p>
-            <button
-              onClick={onOpenAdmin}
-              className="px-4 py-2.5 rounded-full bg-brand-darkSlate hover:bg-stone-800 border border-stone-700 text-white text-xs font-medium uppercase tracking-wider flex items-center gap-2 transition-colors"
-            >
-              <Lock className="w-3.5 h-3.5 text-brand-gold" />
-              <span>Idas Admin Studie</span>
-            </button>
           </div>
 
         </div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Calendar as CalendarIcon, CheckCircle2, Send, User, Mail, Phone, MapPin } from 'lucide-react';
 import { allPackageNames } from '../data/pricingData';
 
-export default function PublicBookingForm({ onNewBookingSubmit, preselectedPackage }) {
+export default function PublicBookingForm({ preselectedPackage }) {
   const packageOptions = preselectedPackage && !allPackageNames.includes(preselectedPackage)
     ? [...allPackageNames, preselectedPackage]
     : allPackageNames;
@@ -23,22 +23,6 @@ export default function PublicBookingForm({ onNewBookingSubmit, preselectedPacka
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.date) return;
 
-    const newBooking = {
-      id: `BKG-WEB-${Math.floor(1000 + Math.random() * 9000)}`,
-      clientName: formData.name,
-      clientEmail: formData.email,
-      clientPhone: formData.phone || '+45 00 00 00 00',
-      serviceType: formData.serviceType,
-      date: formData.date,
-      timeSlot: 'Aftales ved konsultation',
-      location: formData.location || 'Slagelse / Sjælland',
-      priceDKK: 0,
-      status: 'Afventer Forespørgsel',
-      notes: formData.notes,
-      paidDeposit: false
-    };
-
-    onNewBookingSubmit(newBooking);
     setSubmitted(true);
   };
 
@@ -60,7 +44,7 @@ export default function PublicBookingForm({ onNewBookingSubmit, preselectedPacka
                 Mange tak! Forespørgsel Modtaget
               </h3>
               <p className="text-stone-600 text-sm max-w-md mx-auto font-light leading-relaxed">
-                Tak <span className="font-medium text-brand-charcoal">{formData.name}</span>. Din datoforespørgsel til <span className="font-medium text-brand-charcoal">{formData.date}</span> er nu registreret direkte i Idas kalenderportal på <span className="text-brand-gold font-medium">www.idahelia.dk</span>.
+                Tak <span className="font-medium text-brand-charcoal">{formData.name}</span>. Din datoforespørgsel til <span className="font-medium text-brand-charcoal">{formData.date}</span> er nu sendt til Ida.
               </p>
               <p className="text-xs text-stone-500 font-light">
                 Ida vil gennemgå oplysningerne og vende tilbage inden for 24 timer.
