@@ -26,10 +26,6 @@ export default function Footer() {
             <p className="text-xs text-stone-400 font-light max-w-md leading-relaxed">
               Fotografering med nærvær – graviditet, familie, børn, nyfødte og bryllupper i Slagelse og på hele Sjælland. Ægte øjeblikke og minder for livet.
             </p>
-            <div className="text-xs text-brand-gold font-medium flex items-center gap-2">
-              <Globe className="w-4 h-4" />
-              <span>Officielt Domæne: www.idahelia.dk</span>
-            </div>
           </div>
 
           {/* Quick Links */}

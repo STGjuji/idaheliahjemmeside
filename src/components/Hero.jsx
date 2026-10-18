@@ -55,12 +55,6 @@ export default function Hero({ onBookClick, onPortfolioClick }) {
         </div>
       ))}
 
-      {/* Domain Badge */}
-      <div className="absolute top-28 left-6 md:left-12 z-10 glass-panel border border-white/20 text-brand-charcoal text-[11px] font-medium tracking-[0.2em] uppercase px-3.5 py-1.5 rounded-full flex items-center gap-2">
-        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-        Officiel Hjemmeside • www.idahelia.dk
-      </div>
-
       {/* Main Content Overlay */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center">
         <span className="text-xs md:text-sm tracking-[0.3em] uppercase text-brand-goldLight font-medium mb-4 animate-fade-in">
