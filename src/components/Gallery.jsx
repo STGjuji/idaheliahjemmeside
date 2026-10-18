@@ -55,19 +55,21 @@ export default function Gallery({
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-8">
           {visibleItems.map((item) => (
             <div
               key={item.id}
               onClick={() => setSelectedImage(item)}
-              className="group relative bg-stone-100 rounded-xl overflow-hidden cursor-pointer shadow-sm hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 animate-fade-in"
+              className="group relative mb-8 break-inside-avoid overflow-hidden rounded-xl bg-stone-100 cursor-pointer shadow-sm hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 animate-fade-in"
             >
               {/* Image */}
-              <div className="w-full h-[420px] overflow-hidden relative">
+              <div className="relative w-full overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  width={item.width}
+                  height={item.height}
+                  className="block h-auto w-full transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6 text-white" />
@@ -85,10 +87,12 @@ export default function Gallery({
                 <span className="text-[10px] tracking-[0.2em] text-brand-goldLight uppercase font-semibold block mb-1">
                   {item.category}
                 </span>
-                <span className="flex items-center gap-1 text-xs text-stone-300 font-light">
-                  <MapPin className="w-3 h-3 text-brand-gold" />
-                  {item.location}
-                </span>
+                {item.location && (
+                  <span className="flex items-center gap-1 text-xs text-stone-300 font-light">
+                    <MapPin className="w-3 h-3 text-brand-gold" />
+                    {item.location}
+                  </span>
+                )}
               </div>
             </div>
           ))}
@@ -142,7 +146,7 @@ export default function Gallery({
                     {selectedImage.category}
                   </span>
                   <h3 className="font-serif text-3xl font-normal mb-4 text-white">
-                    {selectedImage.location}
+                    {selectedImage.title}
                   </h3>
 
                   <div className="space-y-4 text-xs text-stone-300 font-light border-y border-stone-800 py-6 my-6">

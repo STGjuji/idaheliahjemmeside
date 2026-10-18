@@ -1,3 +1,5 @@
+import { portfolioImageDimensions } from './portfolioImageDimensions';
+
 const photoModules = import.meta.glob(
   '../assets/photos/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}',
   { eager: true, query: '?url', import: 'default' }
@@ -34,7 +36,8 @@ const photoEntries = Object.entries(photoModules)
     const category = categoryById[categoryId];
     if (!category) return null;
     const file = parts[parts.length - 1];
-    return { file, categoryId, categoryName: category.name, url, isCover: !!(coverOverrides[categoryId] && coverOverrides[categoryId] === file) };
+    const [width, height] = portfolioImageDimensions[`${categoryId}/${file}`] ?? [];
+    return { file, categoryId, categoryName: category.name, url, width, height, isCover: !!(coverOverrides[categoryId] && coverOverrides[categoryId] === file) };
   })
   .filter(Boolean);
 
@@ -52,7 +55,9 @@ export const portfolio = photoEntries.map((entry, index) => ({
   title: entry.categoryName,
   category: entry.categoryName,
   categoryId: entry.categoryId,
-  location,
+  location: '',
+  width: entry.width,
+  height: entry.height,
   image: entry.url
 }));
 
@@ -94,4 +99,3 @@ export function getPreviewItems(limit = 6) {
 
   return result;
 }
-
